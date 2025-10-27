@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Maru Lin&#39;s Blog</title>
+<meta name="keywords" content="git, branching">
+<meta name="description" content="Rebase
+What Rebase Does
+Rebasing in Git is a process that allows you to move or combine a sequence of commits to a new base commit. This is particularly useful for keeping your commit history linear and clean, which can make it easier to follow the changes in a project.
+Here&rsquo;s how rebasing works:">
+<meta name="author" content="Maru Lin">
+<link rel="canonical" href="http://localhost:1313/posts/git-branching/ex.-deep-dive-into-rebase/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b4958d4e4bc6a6ded2fbe22842cfe3fa5dd11f48c202de1427b589fef29ef1bd.css" integrity="sha256-tJWNTkvGpt7S&#43;&#43;IoQs/j&#43;l3RH0jCAt4UJ7WJ/vKe8b0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/git-branching/ex.-deep-dive-into-rebase/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Maru Lin&#39;s Blog (Alt + H)">Maru Lin&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/search/" title="search (Alt &#43; /)" accesskey=/>
+                    <span>search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="archives">
+                    <span>archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/Maru1301" title="Maru1301">
+                    <span>Maru1301</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      
+    </h1>
+    <div class="post-meta"><span>Maru Lin</span>
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#rebase" aria-label="Rebase">Rebase</a><ul>
+                            
+                    <li>
+                        <a href="#what-rebase-does" aria-label="What Rebase Does">What Rebase Does</a></li>
+                    <li>
+                        <a href="#how-rebase-affects-branching" aria-label="How Rebase Affects Branching">How Rebase Affects Branching</a></li>
+                    <li>
+                        <a href="#example-scenario" aria-label="Example Scenario">Example Scenario</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#undo-rebase" aria-label="Undo Rebase">Undo Rebase</a><ul>
+                            
+                    <li>
+                        <a href="#undoing-an-ongoing-rebase" aria-label="Undoing an Ongoing Rebase">Undoing an Ongoing Rebase</a><ul>
+                            
+                    <li>
+                        <a href="#scenario" aria-label="Scenario:">Scenario:</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#undoing-a-completed-rebase" aria-label="Undoing a Completed Rebase">Undoing a Completed Rebase</a><ul>
+                            
+                    <li>
+                        <a href="#scenario-1" aria-label="Scenario:">Scenario:</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#undoing-a-pushed-rebase" aria-label="Undoing a Pushed Rebase">Undoing a Pushed Rebase</a><ul>
+                            
+                    <li>
+                        <a href="#scenario-2" aria-label="Scenario:">Scenario:</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#using-a-reflog-for-more-complex-cases" aria-label="Using a Reflog for More Complex Cases">Using a Reflog for More Complex Cases</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    
+    document.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+    
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        if (elements.length > 0) {
+            
+            activeElement = elements[0];
+            const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+            document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+        }
+    
+        
+        const topLink = document.getElementById('top-link');
+        if (topLink) {
+            topLink.addEventListener('click', (event) => {
+                
+                event.preventDefault();
+    
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    }, false);
+    
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+    
+    window.addEventListener('scroll', () => {
+        
+        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    
+        
+        if (scrollPosition === 0) {
+            return;
+        }
+    
+        
+        if (elements && elements.length > 0) {
+            
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - scrollPosition) > 0 && 
+                    (getOffsetTop(element) - scrollPosition) < window.innerHeight / 2) {
+                    return element;
+                }
+            }) || activeElement;
+    
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                const tocLink = document.querySelector(`.inner ul li a[href="#${id}"]`);
+                if (element === activeElement){
+                    tocLink.classList.add('active');
+    
+                    
+                    const tocContainer = document.querySelector('.toc .inner');
+                    const linkOffsetTop = tocLink.offsetTop;
+                    const containerHeight = tocContainer.clientHeight;
+                    const linkHeight = tocLink.clientHeight;
+    
+                    
+                    const scrollPosition = linkOffsetTop - (containerHeight / 2) + (linkHeight / 2);
+                    tocContainer.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+                } else {
+                    tocLink.classList.remove('active');
+                }
+            });
+        }
+    }, false);
+    
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+    
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+    
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+    
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+    
+</script>
+
+  <div class="post-content"><h1 id="rebase">Rebase<a hidden class="anchor" aria-hidden="true" href="#rebase">#</a></h1>
+<h2 id="what-rebase-does">What Rebase Does<a hidden class="anchor" aria-hidden="true" href="#what-rebase-does">#</a></h2>
+<p>Rebasing in Git is a process that allows you to move or combine a sequence of commits to a new base commit. This is particularly useful for keeping your commit history linear and clean, which can make it easier to follow the changes in a project.<br>
+Here&rsquo;s how rebasing works:</p>
+<ol>
+<li><strong>Rebase a Branch onto Another Branch:</strong>
+When you rebase <code>feature-branch</code> onto <code>main</code>, Git first determines the common ancestor of the two branches. Then, it takes all the commits from <code>feature-branch</code> that are not in <code>main</code> and re-applies them on top of <code>main</code>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout feature-branch
+</span></span><span style="display:flex;"><span>git rebase main
+</span></span></code></pre></div></li>
+<li><strong>Rebase Workflow:</strong>
+<ul>
+<li><strong>Rewind:</strong> Git temporarily removes the commits from <code>feature-branch</code> that are not in <code>main</code>, making it appear as if the branch is based on <code>main</code>.</li>
+<li><strong>Replay:</strong> Git then applies each of the commits from <code>feature-branch</code> one by one onto the tip of <code>main</code>.</li>
+</ul>
+</li>
+</ol>
+<h2 id="how-rebase-affects-branching">How Rebase Affects Branching<a hidden class="anchor" aria-hidden="true" href="#how-rebase-affects-branching">#</a></h2>
+<p>Rebasing can significantly affect how branches relate to each other. Here are some key points:</p>
+<ol>
+<li><strong>Linear History:</strong>
+Rebasing creates a linear commit history, which can be easier to understand and follow. This is especially useful in collaborative projects where a clean history helps new contributors understand the changes that have been made.</li>
+<li><strong>Conflicts:</strong>
+During the rebase process, if there are conflicting changes between the commits being rebased and the base branch (e.g., <code>main</code>), Git will pause and allow you to resolve these conflicts manually. After resolving conflicts, you continue the rebase.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add &lt;resolved-file&gt;
+</span></span><span style="display:flex;"><span>git rebase --continue
+</span></span></code></pre></div></li>
+<li><strong>Changing Commit Hashes:</strong>
+Rebasing changes the commit hashes of the rebased commits because their parent commit has changed. This can be problematic if those commits have already been pushed to a shared repository because it requires a force push to update the remote branch.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push --force
+</span></span></code></pre></div></li>
+<li><strong>History Rewriting:</strong>
+Since rebase essentially rewrites history, it should be used with caution, particularly with shared branches. It&rsquo;s generally safe to rebase local branches that haven&rsquo;t been shared with others. For shared branches, it&rsquo;s better to use <code>merge</code>.</li>
+<li><strong>Avoiding Merge Commits:</strong>
+By using rebase, you can avoid unnecessary merge commits in the history. This makes the history cleaner but means you won&rsquo;t see explicit points where branches were merged, which might hide the context of the changes.</li>
+</ol>
+<h2 id="example-scenario">Example Scenario<a hidden class="anchor" aria-hidden="true" href="#example-scenario">#</a></h2>
+<p>Consider this scenario:</p>
+<ul>
+<li><code>main</code> has commits <code>A</code>, <code>B</code>, and <code>C</code>.</li>
+<li><code>feature-branch</code> has commits <code>D</code> and <code>E</code> based on commit <code>B</code> of <code>main</code>.</li>
+</ul>
+<pre tabindex="0"><code>main: A---B---C
+		   \
+feature:    D---E
+</code></pre><p>After rebasing <code>feature-branch</code> onto <code>main</code>, the history would look like this:</p>
+<pre tabindex="0"><code>main: A---B---C
+                \
+feature:         D&#39;---E&#39;
+</code></pre><p>Commits <code>D</code> and <code>E</code> are now reapplied on top of commit <code>C</code> in <code>main</code>, becoming <code>D'</code> and <code>E'</code>.</p>
+<h1 id="undo-rebase">Undo Rebase<a hidden class="anchor" aria-hidden="true" href="#undo-rebase">#</a></h1>
+<h2 id="undoing-an-ongoing-rebase">Undoing an Ongoing Rebase<a hidden class="anchor" aria-hidden="true" href="#undoing-an-ongoing-rebase">#</a></h2>
+<p>If you are in the middle of a rebase and want to stop and undo the changes:</p>
+<ol>
+<li><strong>Abort the Rebase:</strong>
+This command will stop the rebase process and return your branch to the state it was in before the rebase started.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git rebase —abort
+</span></span></code></pre></div><p>This will discard all changes made during the rebase and reset the branch to its original state before the rebase was initiated.<br>
+This will discard all changes made during the rebase and reset the branch to its original state before the rebase was initiated.</p>
+<h3 id="scenario">Scenario:<a hidden class="anchor" aria-hidden="true" href="#scenario">#</a></h3>
+<p>You are in the middle of rebasing <code>feature-branch</code> onto <code>main</code>, but decide to abort the process.<br>
+  <strong>Initial State</strong>:</p>
+<pre tabindex="0"><code>main:       A---B---C
+				  \
+feature-branch:    D---E
+</code></pre><p>  <strong>During Rebase</strong>:<br>
+  You start rebasing <code>feature-branch</code> onto <code>main</code>, and Git is in the process of replaying commits <code>D</code> and <code>E</code>.</p>
+<pre tabindex="0"><code>main:       A---B---C
+					   \
+feature-branch:        (D---E) [In progress]
+</code></pre><p>  <strong>Aborting the Rebase:</strong><br>
+  Use the command:<br>
+  <code> git rebase --abort </code>
+  <strong>Final State (after aborting)</strong>:<br>
+  ```
+main:       A&mdash;B&mdash;C
+<br>
+feature-branch:    D&mdash;E</p>
+<pre><code>```
+</code></pre>
+<h2 id="undoing-a-completed-rebase">Undoing a Completed Rebase<a hidden class="anchor" aria-hidden="true" href="#undoing-a-completed-rebase">#</a></h2>
+<p>If you have already completed the rebase and want to undo it:</p>
+<ol>
+<li><strong>Use the ORIG_HEAD Reference:</strong>
+After a rebase, Git temporarily saves the previous state of your branch in <code>ORIG\_HEAD</code>. You can reset your branch to this state.
+<pre tabindex="0"><code>git reset --hard ORIG_HEAD
+</code></pre>This will reset your branch to the state it was in before the rebase. Note that this command will discard any changes made during the rebase, so use it with caution.</li>
+</ol>
+<h3 id="scenario-1">Scenario:<a hidden class="anchor" aria-hidden="true" href="#scenario-1">#</a></h3>
+<p>You have completed rebasing <code>feature-branch</code> onto <code>main</code>, but decide to undo it.<br>
+  <strong>Initial State (before rebase):</strong></p>
+<pre tabindex="0"><code>main:       A---B---C
+				  \
+feature-branch:    D---E
+</code></pre><p>  <strong>After Rebase:</strong><br>
+You have successfully rebased <code>feature-branch</code> onto <code>main</code>.</p>
+<pre tabindex="0"><code>main:       A---B---C
+				  \
+feature-branch:         D&#39;---E&#39;
+</code></pre><p>  <strong>Undoing the Rebase:</strong><br>
+  Use the command:<br>
+<code> git reset --hard ORIG_HEAD </code>
+  <strong>Final State (after resetting to ORIG_HEAD):</strong></p>
+<pre tabindex="0"><code>main:       A---B---C
+				  \
+feature-branch:    D---E
+</code></pre><h2 id="undoing-a-pushed-rebase">Undoing a Pushed Rebase<a hidden class="anchor" aria-hidden="true" href="#undoing-a-pushed-rebase">#</a></h2>
+<p>If you have already pushed the rebased branch to a remote repository, undoing the rebase becomes more complex, especially if others have already started working on the rebased branch. Here are the steps:</p>
+<ol>
+<li><strong>Inform Your Team:</strong>
+Communicate with your team to ensure no one else is working on the rebased branch or has pulled the changes. This is crucial to avoid conflicts and lost work.</li>
+<li><strong>Reset the Local Branch:</strong>
+Reset your local branch to the previous state before the rebase using <code>ORIG\_HEAD</code>.
+<pre tabindex="0"><code class="language-base" data-lang="base">git reset --hard ORIG_HEAD
+</code></pre></li>
+</ol>
+<pre tabindex="0"><code>3. **Force Push to the Remote:**
+Force push the reset branch to the remote repository to overwrite the rebased history. This should be done carefully and only if you are sure no one else is affected.   
+    ```
+git push --force
+</code></pre><h3 id="scenario-2">Scenario:<a hidden class="anchor" aria-hidden="true" href="#scenario-2">#</a></h3>
+<p>You completed the rebase but <code>ORIG\_HEAD</code> is not available. You will use the reflog to find the previous state.<br>
+  <strong>Initial State (before rebase):</strong><br>
+  ```
+main:       A&mdash;B&mdash;C
+<br>
+feature-branch:    D&mdash;E</p>
+<pre tabindex="0"><code>  **After Rebase:**   
+  You have successfully rebased `feature-branch` onto `main`.   
+  ```
+main:       A---B---C
+                       \
+feature-branch:         D&#39;---E&#39;
+</code></pre><p>  <strong>Using Reflog:</strong><br>
+  View the reflog to find the commit before the rebase.</p>
+<pre tabindex="0"><code class="language-base" data-lang="base">git reflog
+</code></pre><p>  You find that the commit hash before the rebase was <code>B</code>.<br>
+  <strong>Resetting to the Previous Commit:</strong><br>
+  Use the commit hash found in the reflog.</p>
+<pre tabindex="0"><code>git reset --hard &lt;commit-hash&gt;
+</code></pre><p>  <strong>Final State (after resetting):</strong></p>
+<pre tabindex="0"><code>main:       A---B---C
+                  \
+feature-branch:    D---E
+</code></pre><h2 id="using-a-reflog-for-more-complex-cases">Using a Reflog for More Complex Cases<a hidden class="anchor" aria-hidden="true" href="#using-a-reflog-for-more-complex-cases">#</a></h2>
+<p>If <code>ORIG\_HEAD</code> is not available or you need to undo more complex changes, you can use Git&rsquo;s reflog to find the commit before the rebase and reset to that commit.</p>
+<ol>
+<li><strong>View the Reflog:</strong>
+The reflog shows a history of all actions (including rebases) that have affected the HEAD.</li>
+</ol>
+<pre tabindex="0"><code class="language-base" data-lang="base">git reflog
+</code></pre><ol start="2">
+<li><strong>Find the Commit Before the Rebase:</strong>
+Identify the commit hash before the rebase started.</li>
+<li><strong>Reset to the Previous Commit:</strong>
+Reset your branch to that commit.
+<pre tabindex="0"><code></code></pre></li>
+</ol>
+<p>git reset &ndash;hard <!-- raw HTML omitted --></p>
+<pre tabindex="0"><code>   
+### Scenario:   
+You pushed the rebased `feature-branch` to the remote and now need to undo it.   
+  **Initial State (before rebase):**   
+  ```
+main:       A---B---C
+                  \
+feature-branch:    D---E
+</code></pre><p>  <strong>After Rebase:</strong><br>
+  You have successfully rebased and pushed <code>feature-branch</code> to the remote.<br>
+  ```
+main:       A&mdash;B&mdash;C
+<br>
+feature-branch:         D&rsquo;&mdash;E'</p>
+<pre tabindex="0"><code>  **Resetting Locally:**   
+  Use `ORIG\_HEAD` to reset your local branch to the state before the rebase.   
+  ```
+git reset --hard ORIG_HEAD
+</code></pre><p>  <strong>Final State (locally after resetting):</strong><br>
+  ```
+main:       A&mdash;B&mdash;C
+<br>
+feature-branch:    D&mdash;E</p>
+<pre tabindex="0"><code>  **Force Pushing to Remote:**   
+  Force push to update the remote branch.   
+  ```
+git push --force
+</code></pre><p>  <strong>Final State (remote and local are now in sync):</strong><br>
+  ```
+main:       A&mdash;B&mdash;C
+<br>
+feature-branch:    D&mdash;E</p>
+<pre tabindex="0"><code>   
+</code></pre>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/git/">Git</a></li>
+      <li><a href="http://localhost:1313/tags/branching/">Branching</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Maru Lin&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

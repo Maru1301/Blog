@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>C# on Maru Lin&#39;s Blog</title>
+    <link>http://localhost:1313/tags/c%23/</link>
+    <description>Recent content in C# on Maru Lin&#39;s Blog</description>
+    <generator>Hugo -- 0.151.2</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/tags/c%23/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C# Yield</title>
+      <link>http://localhost:1313/posts/csharp-keyword-yield/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/csharp-keyword-yield/</guid>
+      <description>&lt;h2 id=&#34;-intent&#34;&gt;🧩 Intent&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;yield&lt;/code&gt; keyword simplifies the creation of iterators by allowing a method to produce a sequence of values lazily, one at a time, without building a collection in memory.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

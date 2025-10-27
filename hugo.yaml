@@ -1,0 +1,38 @@
+baseURL: https://example.org/
+languageCode: en-us
+title: Maru Lin's Blog
+theme: ["PaperMod"]
+summaryLength: 1
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
+
+menu:
+  main:
+    - identifier: search
+      name: search
+      url: /search/
+      weight: 10
+    - identifier: archives
+      name: archives
+      url: /archives/
+      weight: 20
+    - identifier: tags
+      name: tags
+      url: /tags/
+      weight: 30
+    - identifier: Maru1301
+      name: Maru1301
+      url: https://github.com/Maru1301
+      weight: 40
+
+params:
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  author: "Maru Lin"
+  ShowToc: true
+  TocOpen: true
+

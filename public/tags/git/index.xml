@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Git on Maru Lin&#39;s Blog</title>
+    <link>http://localhost:1313/tags/git/</link>
+    <description>Recent content in Git on Maru Lin&#39;s Blog</description>
+    <generator>Hugo -- 0.151.2</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git Branching Ex-Deep Dive into Rebase</title>
+      <link>http://localhost:1313/posts/git-branching/git-branching-ex-deep-dive-into-rebase/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-branching/git-branching-ex-deep-dive-into-rebase/</guid>
+      <description>&lt;h1 id=&#34;rebase&#34;&gt;Rebase&lt;/h1&gt;
+&lt;h2 id=&#34;what-rebase-does&#34;&gt;What Rebase Does&lt;/h2&gt;
+&lt;p&gt;Rebasing in Git is a process that allows you to move or combine a sequence of commits to a new base commit. This is particularly useful for keeping your commit history linear and clean, which can make it easier to follow the changes in a project.&lt;br&gt;
+Here&amp;rsquo;s how rebasing works:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git Branching Ex-Deleting a Remote Branch</title>
+      <link>http://localhost:1313/posts/git-branching/git-branching-ex-deleting-a-remote-branch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-branching/git-branching-ex-deleting-a-remote-branch/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Objective&lt;/strong&gt;: Learn how to delete a remote branch from your repository.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git Branching Ex-Squash Merge vs Base Merge</title>
+      <link>http://localhost:1313/posts/git-branching/git-branching-ex-squash-merge-vs-base-merge/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-branching/git-branching-ex-squash-merge-vs-base-merge/</guid>
+      <description>&lt;p&gt;When working with Git, merging is a crucial part of integrating changes from different branches. Two common types of merges are &lt;strong&gt;squash merge&lt;/strong&gt; and &lt;strong&gt;base (regular) merge&lt;/strong&gt;. Each has its own use cases and implications for your commit history.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git Branching1-Getting Started</title>
+      <link>http://localhost:1313/posts/git-branching/git-branching1-getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-branching/git-branching1-getting-started/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Understand the basics of creating and switching branches.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git Branching2-Working with Branches</title>
+      <link>http://localhost:1313/posts/git-branching/git-branching2-working-with-branches/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-branching/git-branching2-working-with-branches/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Make changes in branches and understand basic workflows.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git Branching3-Merging and Deleting Branches</title>
+      <link>http://localhost:1313/posts/git-branching/git-branching3-merging-and-deleting-branches/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-branching/git-branching3-merging-and-deleting-branches/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Learn how to merge changes from one branch into another and manage branches.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git Branching4-Pushing and Pulling Branches</title>
+      <link>http://localhost:1313/posts/git-branching/git-branching4-pushing-and-pulling-branches/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-branching/git-branching4-pushing-and-pulling-branches/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Understand how to push branches to a remote repository and manage remote branches.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git Branching5-Moving Branches to Specific Commits</title>
+      <link>http://localhost:1313/posts/git-branching/git-branching5-moving-branches-to-specific-commits/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-branching/git-branching5-moving-branches-to-specific-commits/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Learn how to move a branch to point to a specific commit.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git Branching6-Cherry-Picking Commits</title>
+      <link>http://localhost:1313/posts/git-branching/git-branching6-cherry-picking-commits/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-branching/git-branching6-cherry-picking-commits/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Learn how to apply specific commits from one branch to another using cherry-picking.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git Branching7-Rebasing Branches</title>
+      <link>http://localhost:1313/posts/git-branching/git-branching7-rebasing-branches/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-branching/git-branching7-rebasing-branches/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Understand how to rebase branches to integrate changes and maintain a cleaner commit history.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git Branching8-More Branch Operations</title>
+      <link>http://localhost:1313/posts/git-branching/git-branching8-more-branch-operations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-branching/git-branching8-more-branch-operations/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Gain confidence in more complex branch operations.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
