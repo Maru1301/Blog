@@ -4,6 +4,9 @@ date: '2025-09-26T11:19:50+08:00'
 tags:
   - git
   - branching
+categories:
+  - git-branching
+weight: 110
 ---
 When working with Git, merging is a crucial part of integrating changes from different branches. Two common types of merges are **squash merge** and **base (regular) merge**. Each has its own use cases and implications for your commit history.
 ## Base (Regular) Merge
@@ -25,7 +28,6 @@ git merge feature-branch
 main:     A---B---C-------E
                \         /
 feature:        D---F---G
-
 ```
 Here, `E` is the merge commit.
 ## Squash Merge
@@ -50,7 +52,6 @@ git commit -m "Squashed commit from feature-branch"
 main:     A---B---C---E
               \
 feature:       D---F---G
-
 ```
 Here, `E` is the single commit representing all the changes from the `feature-branch`.
 ## Comparison

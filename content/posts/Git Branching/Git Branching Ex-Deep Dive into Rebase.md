@@ -5,6 +5,9 @@ draft: false
 tags:
   - git
   - branching
+categories:
+  - git-branching
+weight: 90
 ---
 # Rebase   
 ## What Rebase Does   

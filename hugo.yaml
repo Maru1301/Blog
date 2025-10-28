@@ -24,10 +24,14 @@ menu:
       name: tags
       url: /tags/
       weight: 30
+    - identifier: categories
+      name: categories
+      url: /categories/
+      weight: 40
     - identifier: Maru1301
       name: Maru1301
       url: https://github.com/Maru1301
-      weight: 40
+      weight: 50
 
 params:
   ShowBreadCrumbs: true
@@ -36,4 +40,5 @@ params:
   ShowToc: true
   TocOpen: true
   favicon: "favicon.svg"
+  env: production
 

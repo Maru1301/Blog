@@ -4,6 +4,9 @@ date: '2025-10-27T14:06:50+08:00'
 tags:
   - git
   - branching
+categories:
+  - git-branching
+weight: 10
 ---
 >**Objective:** Understand the basics of creating and switching branches.   
 ## 1. **List All Branches** 

@@ -4,6 +4,9 @@ date: '2025-10-28T10:06:50+08:00'
 tags:
   - git
   - branching
+categories:
+  - git-branching
+weight: 50
 ---
 >**Objective:** Learn how to move a branch to point to a specific commit.   
 ## 1. **Find the Commit Hash**   

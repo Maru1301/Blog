@@ -4,6 +4,9 @@ date: '2025-10-27T12:06:50+08:00'
 tags:
   - git
   - branching
+categories:
+  - git-branching
+weight: 70
 ---
  >**Objective:** Understand how to rebase branches to integrate changes and maintain a cleaner commit history.
 

@@ -4,6 +4,9 @@ date: '2025-10-27T12:07:50+08:00'
 tags:
   - git
   - branching
+categories:
+  - git-branching
+weight: 60
 ---
  >**Objective:** Learn how to apply specific commits from one branch to another using cherry-picking.   
 ## 1. **Find the Commit Hash to Cherry-Pick**   

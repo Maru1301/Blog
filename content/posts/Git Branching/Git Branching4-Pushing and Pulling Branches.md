@@ -4,6 +4,9 @@ date: '2025-10-27T16:06:50+08:00'
 tags:
   - git
   - branching
+categories:
+  - git-branching
+weight: 40
 ---
 >**Objective:** Understand how to push branches to a remote repository and manage remote branches.   
 ## 1. **Push a Branch to Remote**   

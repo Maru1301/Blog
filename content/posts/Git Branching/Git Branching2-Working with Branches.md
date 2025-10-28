@@ -4,6 +4,9 @@ date: '2025-10-27T13:06:50+08:00'
 tags:
   - git
   - branching
+categories:
+  - git-branching
+weight: 20
 ---
 >**Objective:** Make changes in branches and understand basic workflows.   
 ## 1. **Create and Switch to a New Branch**   

@@ -4,6 +4,9 @@ date: '2025-09-26T10:06:50+08:00'
 tags:
   - git
   - branching
+categories:
+  - git-branching
+weight: 100
 ---
 >**Objective**: Learn how to delete a remote branch from your repository.   
 ### Brief Introduction to the Command:   

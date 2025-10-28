@@ -4,6 +4,9 @@ date: '2025-10-27T11:06:50+08:00'
 tags:
   - git
   - branching
+categories:
+  - git-branching
+weight: 80
 ---
 >**Objective:** Gain confidence in more complex branch operations.   
 ## 1. **Rename a Branch**   

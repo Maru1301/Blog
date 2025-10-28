@@ -4,6 +4,9 @@ date: '2025-10-27T15:06:50+08:00'
 tags:
   - git
   - branching
+categories:
+  - git-branching
+weight: 30
 ---
  >**Objective:** Learn how to merge changes from one branch into another and manage branches.   
 ## 1. **Merge a Branch into the Current Branch**   
