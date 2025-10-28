@@ -39,7 +39,9 @@ params:
   author: "Maru Lin"
   ShowToc: true
   TocOpen: true
+  UseHugoToc: true
   favicon: "favicon.svg"
   env: production
-  showPostNavLinks: true
-
+  ShowPostNavLinks: true
+  ShowShareButtons: true
+  ShareButtons: ["x", "facebook", "linkedin", "reddit"]
