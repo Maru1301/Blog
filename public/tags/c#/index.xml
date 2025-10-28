@@ -6,11 +6,12 @@
     <description>Recent content in C# on Maru Lin&#39;s Blog</description>
     <generator>Hugo -- 0.151.2</generator>
     <language>en-us</language>
+    <lastBuildDate>Mon, 27 Oct 2025 09:06:50 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/c%23/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C# Yield</title>
       <link>http://localhost:1313/posts/csharp-keyword-yield/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Oct 2025 09:06:50 +0800</pubDate>
       <guid>http://localhost:1313/posts/csharp-keyword-yield/</guid>
       <description>&lt;h2 id=&#34;-intent&#34;&gt;🧩 Intent&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;yield&lt;/code&gt; keyword simplifies the creation of iterators by allowing a method to produce a sequence of values lazily, one at a time, without building a collection in memory.&lt;/p&gt;</description>

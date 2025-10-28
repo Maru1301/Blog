@@ -35,4 +35,5 @@ params:
   author: "Maru Lin"
   ShowToc: true
   TocOpen: true
+  favicon: "favicon.svg"
 

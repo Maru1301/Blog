@@ -6,8 +6,16 @@
     <description>Recent content on Maru Lin&#39;s Blog</description>
     <generator>Hugo -- 0.151.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Oct 2025 15:06:50 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 27 Oct 2025 16:06:50 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git Branching4-Pushing and Pulling Branches</title>
+      <link>http://localhost:1313/posts/git-branching/git-branching4-pushing-and-pulling-branches/</link>
+      <pubDate>Mon, 27 Oct 2025 16:06:50 +0800</pubDate>
+      <guid>http://localhost:1313/posts/git-branching/git-branching4-pushing-and-pulling-branches/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Understand how to push branches to a remote repository and manage remote branches.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Git Branching3-Merging and Deleting Branches</title>
       <link>http://localhost:1313/posts/git-branching/git-branching3-merging-and-deleting-branches/</link>
@@ -67,12 +75,45 @@
 Here&amp;rsquo;s how rebasing works:&lt;/p&gt;</description>
     </item>
     <item>
+      <title>1111My First Post1</title>
+      <link>http://localhost:1313/posts/1my-first-post---%E8%A4%87%E8%A3%BD/</link>
+      <pubDate>Mon, 27 Oct 2025 09:06:50 +0800</pubDate>
+      <guid>http://localhost:1313/posts/1my-first-post---%E8%A4%87%E8%A3%BD/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;111This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>C# Yield</title>
       <link>http://localhost:1313/posts/csharp-keyword-yield/</link>
       <pubDate>Mon, 27 Oct 2025 09:06:50 +0800</pubDate>
       <guid>http://localhost:1313/posts/csharp-keyword-yield/</guid>
       <description>&lt;h2 id=&#34;-intent&#34;&gt;🧩 Intent&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;yield&lt;/code&gt; keyword simplifies the creation of iterators by allowing a method to produce a sequence of values lazily, one at a time, without building a collection in memory.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Japanese APP MVP</title>
+      <link>http://localhost:1313/posts/japanese-app-mvp/</link>
+      <pubDate>Mon, 27 Oct 2025 09:06:50 +0800</pubDate>
+      <guid>http://localhost:1313/posts/japanese-app-mvp/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;新增字彙&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My First Post1</title>
+      <link>http://localhost:1313/posts/my-first-post---%E8%A4%87%E8%A3%BD---%E8%A4%87%E8%A3%BD/</link>
+      <pubDate>Mon, 27 Oct 2025 09:06:50 +0800</pubDate>
+      <guid>http://localhost:1313/posts/my-first-post---%E8%A4%87%E8%A3%BD---%E8%A4%87%E8%A3%BD/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My First Post1</title>
+      <link>http://localhost:1313/posts/my-first-post/</link>
+      <pubDate>Mon, 27 Oct 2025 09:06:50 +0800</pubDate>
+      <guid>http://localhost:1313/posts/my-first-post/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Git Branching Ex-Squash Merge vs Base Merge</title>
