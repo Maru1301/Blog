@@ -8,7 +8,7 @@ tags:
 
 
 1. **Project Structure:** Ensure your project structure follows the NuGet conventions. Specifically, the assemblies should be placed in the lib folder within your package.
-```
+```xml
 YourProject 
 ├── lib 
 │   └── net8.0 
@@ -116,7 +116,7 @@ To address the NU5128 warning in NuGet, follow these steps:
 ```
 3. **Ensure Proper Folder Structure**  
 The package directory structure must align with the target framework. Place your DLLs in the appropriate lib folder as shown below:
-```
+```xml
 YourProject 
 ├── lib 
 │   └── net8.0 

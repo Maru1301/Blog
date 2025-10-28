@@ -13,7 +13,7 @@ Ensure that your project includes:
 
 - A `.csproj` or `.nuspec` file with proper metadata.
 - The `PackageId`, `Version`, and other relevant fields filled in the `.csproj` file or `.nuspec`.
-```
+```xml
 <PropertyGroup>
   <PackageId>YourPackageName</PackageId>
   <Version>1.0.0</Version>
