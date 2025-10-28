@@ -41,4 +41,5 @@ params:
   TocOpen: true
   favicon: "favicon.svg"
   env: production
+  showPostNavLinks: true
 
