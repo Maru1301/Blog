@@ -70,4 +70,4 @@ tags:
 ### **Problem:**
 You need to rebase `feature-branch` onto the latest `main` branch. During the rebase, you encounter multiple conflicts. After resolving conflicts, you also want to squash the last two commits in `feature-branch` into a single commit before finalizing the rebase. How do you proceed?   
 ## More About Rebase   
-[Ex. Deep Dive into Rebase](/posts/git-branching/git-branching-ex-deep-dive-into-rebase/)    
+[Ex. Deep Dive into Rebase]({{< ref "/posts/git-branching/git-branching-ex-deep-dive-into-rebase/" >}})    

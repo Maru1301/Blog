@@ -60,8 +60,9 @@ feature:        D'---E'
 Commits `D` and `E` are now reapplied on top of commit `C` in `main`, becoming `D'` and `E'`.   
 # Undo Rebase   
 ## Undoing an Ongoing Rebase   
-If you are in the middle of a rebase and want to stop and undo the changes:   
-1. **Abort the Rebase:**
+If you are in the middle of a rebase and want to stop and undo the changes:
+
+**Abort the Rebase:**
 This command will stop the rebase process and return your branch to the state it was in before the rebase started.   
 ```bash
 git rebase —abort
@@ -71,25 +72,25 @@ This will discard all changes made during the rebase and reset the branch to its
 
 ### Scenario:   
 You are in the middle of rebasing `feature-branch` onto `main`, but decide to abort the process.   
-  **Initial State**:   
+- **Initial State**:   
 ```bash
 main:       A---B---C
 		         \
 feature-branch:   D---E
 ```
-  **During Rebase**:   
-	  You start rebasing `feature-branch` onto `main`, and Git is in the process of replaying commits `D` and `E`.   
+- **During Rebase**:   
+You start rebasing `feature-branch` onto `main`, and Git is in the process of replaying commits `D` and `E`.   
 ```bash
 main:       A---B---C
 		              \
 feature-branch:        (D---E) [In progress]
 ```
-  **Aborting the Rebase:**   
-	  Use the command:   
+- **Aborting the Rebase:**   
+Use the command:   
 ```bash
 git rebase --abort
 ```
-  **Final State (after aborting)**:   
+- **Final State (after aborting)**:   
 ```bash
 main:       A---B---C
 				 \
@@ -97,13 +98,14 @@ feature-branch:   D---E
 
 ```
 ## Undoing a Completed Rebase   
-If you have already completed the rebase and want to undo it:   
-1. **Use the ORIG\_HEAD Reference:**
-	After a rebase, Git temporarily saves the previous state of your branch in `ORIG\_HEAD`. You can reset your branch to this state.   
-	```
-	git reset --hard ORIG_HEAD
-	```
-    This will reset your branch to the state it was in before the rebase. Note that this command will discard any changes made during the rebase, so use it with caution.   
+If you have already completed the rebase and want to undo it:
+
+**Use the ORIG\_HEAD Reference:**
+After a rebase, Git temporarily saves the previous state of your branch in `ORIG\_HEAD`. You can reset your branch to this state.   
+```bash
+git reset --hard ORIG_HEAD
+```
+This will reset your branch to the state it was in before the rebase. Note that this command will discard any changes made during the rebase, so use it with caution.   
    
 ### Scenario:   
 You have completed rebasing `feature-branch` onto `main`, but decide to undo it.   

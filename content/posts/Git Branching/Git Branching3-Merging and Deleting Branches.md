@@ -34,5 +34,5 @@ You need to merge `bugfix-2024` into `release` and then delete the `bugfix-2024`
 
 ---
 ## More About Merge   
-[Ex. Squash Merge vs Base Merge](/posts/git-branching/git-branching-ex-squash-merge-vs-base-merge/)    
+[Ex. Squash Merge vs Base Merge]({{< ref "/posts/git-branching/git-branching-ex-squash-merge-vs-base-merge/" >}})    
    

@@ -21,10 +21,10 @@ git merge feature-branch
 
 ```
 ### Example:
-```
+```bash
 main:     A---B---C-------E
-              \         /
-feature:       D---F---G
+               \         /
+feature:        D---F---G
 
 ```
 Here, `E` is the merge commit.
@@ -46,7 +46,7 @@ git commit -m "Squashed commit from feature-branch"
 
 ```
 ### Example:
-```
+```bash
 main:     A---B---C---E
               \
 feature:       D---F---G
