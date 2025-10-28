@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Maru Lin&#39;s Blog</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Maru Lin&#39;s Blog</description>
+    <title>Nuget on Maru Lin&#39;s Blog</title>
+    <link>http://localhost:1313/tags/nuget/</link>
+    <description>Recent content in Nuget on Maru Lin&#39;s Blog</description>
     <generator>Hugo -- 0.151.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Oct 2025 10:06:52 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Publish NuGet to GitHub Packages with Actions</title>
-      <link>http://localhost:1313/posts/nuget-package/use-github-actions-to-publish-a-nuget-package-to-github-packages/</link>
-      <pubDate>Tue, 28 Oct 2025 10:06:52 +0800</pubDate>
-      <guid>http://localhost:1313/posts/nuget-package/use-github-actions-to-publish-a-nuget-package-to-github-packages/</guid>
-      <description>&lt;h3 id=&#34;1-prepare-your-project&#34;&gt;1. &lt;strong&gt;Prepare Your Project&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;Ensure that your project includes:&lt;/p&gt;</description>
-    </item>
+    <lastBuildDate>Tue, 28 Oct 2025 10:06:51 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/nuget/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Create a NuGet Package Guide</title>
       <link>http://localhost:1313/posts/nuget-package/step-by-step-guide-to-create-a-nuget-package/</link>
@@ -97,142 +89,6 @@
 &lt;h2 id=&#34;additional&#34;&gt;Additional&lt;/h2&gt;
 &lt;h3 id=&#34;nuget-is-not-recognized&#34;&gt;&amp;rsquo;nuget&amp;rsquo; is not recognized&lt;/h3&gt;
 &lt;p&gt;To resolve the error where &amp;rsquo;nuget&amp;rsquo; is not recognized as a command:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Add XML Docs to NuGet</title>
-      <link>http://localhost:1313/posts/nuget-package/include-xml-documentation-comments-from-your-project-in-the-nuget-package/</link>
-      <pubDate>Tue, 28 Oct 2025 10:06:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/nuget-package/include-xml-documentation-comments-from-your-project-in-the-nuget-package/</guid>
-      <description>&lt;h2 id=&#34;step-1-enable-xml-documentation-generation&#34;&gt;Step 1: Enable XML Documentation Generation&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;In your project, right-click and select &amp;ldquo;Properties&amp;rdquo;.&lt;/li&gt;
-&lt;li&gt;In the project properties window, go to the &amp;ldquo;Build&amp;rdquo; tab.&lt;/li&gt;
-&lt;li&gt;Check the &amp;ldquo;XML documentation file&amp;rdquo; checkbox and optionally provide a file path for the XML file. If left blank, it will generate the file in the output directory.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;step-2-build-the-project&#34;&gt;Step 2: Build the Project&lt;/h2&gt;
-&lt;p&gt;Build your Utility project to generate the XML documentation file.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Branching4-Pushing and Pulling Branches</title>
-      <link>http://localhost:1313/posts/git-branching/git-branching4-pushing-and-pulling-branches/</link>
-      <pubDate>Mon, 27 Oct 2025 16:06:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/git-branching/git-branching4-pushing-and-pulling-branches/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Understand how to push branches to a remote repository and manage remote branches.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Branching3-Merging and Deleting Branches</title>
-      <link>http://localhost:1313/posts/git-branching/git-branching3-merging-and-deleting-branches/</link>
-      <pubDate>Mon, 27 Oct 2025 15:06:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/git-branching/git-branching3-merging-and-deleting-branches/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Learn how to merge changes from one branch into another and manage branches.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Branching1-Getting Started</title>
-      <link>http://localhost:1313/posts/git-branching/git-branching1-getting-started/</link>
-      <pubDate>Mon, 27 Oct 2025 14:06:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/git-branching/git-branching1-getting-started/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Understand the basics of creating and switching branches.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Branching2-Working with Branches</title>
-      <link>http://localhost:1313/posts/git-branching/git-branching2-working-with-branches/</link>
-      <pubDate>Mon, 27 Oct 2025 13:06:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/git-branching/git-branching2-working-with-branches/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Make changes in branches and understand basic workflows.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Branching6-Cherry-Picking Commits</title>
-      <link>http://localhost:1313/posts/git-branching/git-branching6-cherry-picking-commits/</link>
-      <pubDate>Mon, 27 Oct 2025 12:07:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/git-branching/git-branching6-cherry-picking-commits/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Learn how to apply specific commits from one branch to another using cherry-picking.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Branching7-Rebasing Branches</title>
-      <link>http://localhost:1313/posts/git-branching/git-branching7-rebasing-branches/</link>
-      <pubDate>Mon, 27 Oct 2025 12:06:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/git-branching/git-branching7-rebasing-branches/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Understand how to rebase branches to integrate changes and maintain a cleaner commit history.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Branching8-More Branch Operations</title>
-      <link>http://localhost:1313/posts/git-branching/git-branching8-more-branch-operations/</link>
-      <pubDate>Mon, 27 Oct 2025 11:06:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/git-branching/git-branching8-more-branch-operations/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; Gain confidence in more complex branch operations.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Branching Ex-Deep Dive into Rebase</title>
-      <link>http://localhost:1313/posts/git-branching/git-branching-ex-deep-dive-into-rebase/</link>
-      <pubDate>Mon, 27 Oct 2025 10:06:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/git-branching/git-branching-ex-deep-dive-into-rebase/</guid>
-      <description>&lt;h1 id=&#34;rebase&#34;&gt;Rebase&lt;/h1&gt;
-&lt;h2 id=&#34;what-rebase-does&#34;&gt;What Rebase Does&lt;/h2&gt;
-&lt;p&gt;Rebasing in Git is a process that allows you to move or combine a sequence of commits to a new base commit. This is particularly useful for keeping your commit history linear and clean, which can make it easier to follow the changes in a project.&lt;br&gt;
-Here&amp;rsquo;s how rebasing works:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>1111My First Post1</title>
-      <link>http://localhost:1313/posts/1my-first-post---%E8%A4%87%E8%A3%BD/</link>
-      <pubDate>Mon, 27 Oct 2025 09:06:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/1my-first-post---%E8%A4%87%E8%A3%BD/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;111This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>C# Yield</title>
-      <link>http://localhost:1313/posts/csharp-keyword-yield/</link>
-      <pubDate>Mon, 27 Oct 2025 09:06:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/csharp-keyword-yield/</guid>
-      <description>&lt;h2 id=&#34;-intent&#34;&gt;🧩 Intent&lt;/h2&gt;
-&lt;p&gt;The &lt;code&gt;yield&lt;/code&gt; keyword simplifies the creation of iterators by allowing a method to produce a sequence of values lazily, one at a time, without building a collection in memory.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Japanese APP MVP</title>
-      <link>http://localhost:1313/posts/japanese-app-mvp/</link>
-      <pubDate>Mon, 27 Oct 2025 09:06:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/japanese-app-mvp/</guid>
-      <description>&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;新增字彙&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>My First Post1</title>
-      <link>http://localhost:1313/posts/my-first-post---%E8%A4%87%E8%A3%BD---%E8%A4%87%E8%A3%BD/</link>
-      <pubDate>Mon, 27 Oct 2025 09:06:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/my-first-post---%E8%A4%87%E8%A3%BD---%E8%A4%87%E8%A3%BD/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>My First Post1</title>
-      <link>http://localhost:1313/posts/my-first-post/</link>
-      <pubDate>Mon, 27 Oct 2025 09:06:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/my-first-post/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Branching Ex-Squash Merge vs Base Merge</title>
-      <link>http://localhost:1313/posts/git-branching/git-branching-ex-squash-merge-vs-base-merge/</link>
-      <pubDate>Fri, 26 Sep 2025 11:19:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/git-branching/git-branching-ex-squash-merge-vs-base-merge/</guid>
-      <description>&lt;p&gt;When working with Git, merging is a crucial part of integrating changes from different branches. Two common types of merges are &lt;strong&gt;squash merge&lt;/strong&gt; and &lt;strong&gt;base (regular) merge&lt;/strong&gt;. Each has its own use cases and implications for your commit history.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Branching Ex-Deleting a Remote Branch</title>
-      <link>http://localhost:1313/posts/git-branching/git-branching-ex-deleting-a-remote-branch/</link>
-      <pubDate>Fri, 26 Sep 2025 10:06:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/git-branching/git-branching-ex-deleting-a-remote-branch/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Objective&lt;/strong&gt;: Learn how to delete a remote branch from your repository.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Posts | Maru Lin&#39;s Blog</title>
+<title>Nuget | Maru Lin&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="Posts - Maru Lin&#39;s Blog">
+<meta name="description" content="">
 <meta name="author" content="Maru Lin">
-<link rel="canonical" href="http://localhost:1313/posts/">
+<link rel="canonical" href="http://localhost:1313/tags/nuget/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b4958d4e4bc6a6ded2fbe22842cfe3fa5dd11f48c202de1427b589fef29ef1bd.css" integrity="sha256-tJWNTkvGpt7S&#43;&#43;IoQs/j&#43;l3RH0jCAt4UJ7WJ/vKe8b0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,8 +18,8 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/posts/index.xml" title="rss">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/nuget/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/nuget/">
 <noscript>
     <style>
         #theme-toggle,
@@ -132,147 +132,24 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Home</a></div>
+<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/tags/">Tags</a></div>
   <h1>
-    Posts
+    Nuget
   </h1>
 </header>
 
-<article class="post-entry"> 
+<article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Git Branching Ex-Deep Dive into Rebase
+    <h2 class="entry-hint-parent">Create a NuGet Package Guide
     </h2>
   </header>
   <div class="entry-content">
-    <p>Rebase What Rebase Does Rebasing in Git is a process that allows you to move or combine a sequence of commits to a new base commit. This is particularly useful for keeping your commit history linear and clean, which can make it easier to follow the changes in a project.
-Here’s how rebasing works:
+    <p> Project Structure: Ensure your project structure follows the NuGet conventions. Specifically, the assemblies should be placed in the lib folder within your package. YourProject ├── lib │ └── net8.0 │ └── &lt;Your Project&gt;.dll ├── docs │ └── README.md ├── contentFiles │ └── any │ └── any │ └── somefile.txt (optional) ├── tools │ └── someTool.exe (optional) ├── build │ └── net8.0 │ └── &lt;Your Project&gt;.targets (optional) └── &lt;Your Project&gt;.nuspec .nuspec File: Ensure your .nuspec file is correctly configured to include the necessary files. Here’s an example .nuspec file: &lt;?xml version=&#34;1.0&#34;?&gt; &lt;package &gt; &lt;metadata&gt; &lt;id&gt;YourLibrary&lt;/id&gt; &lt;version&gt;1.0.0&lt;/version&gt; &lt;authors&gt;YourName&lt;/authors&gt; &lt;owners&gt;YourName&lt;/owners&gt; &lt;readme&gt;docs\README.md&lt;/readme&gt; &lt;description&gt;Your library description&lt;/description&gt; &lt;tags&gt;tag&lt;/tags&gt; &lt;dependencies&gt; &lt;group targetFramework=&#34;.NET8.0&#34;&gt; &lt;dependency id=&#34;dependency&#34; version=&#34;1.0.0&#34; /&gt; &lt;/group&gt; &lt;/dependencies&gt; &lt;/metadata&gt; &lt;files&gt; &lt;file src=&#34;lib\net8.0\&lt;Your Project&gt;.dll&#34; target=&#34;lib\net8.0\&#34; /&gt; &lt;file src=&#34;..\README.md&#34; target=&#34;docs\&#34; /&gt; &lt;!-- Add other necessary files here --&gt; &lt;/files&gt; &lt;/package&gt; Building the NuGet Package: Use the nuget pack command to create the NuGet package. Make sure your project is built and the necessary files are in place before packing. nuget pack YourProject.nuspec Automating with .csproj: Alternatively, you can use the .csproj file to automate the creation of the NuGet package. This approach leverages the dotnet pack command. Here’s an example of how to configure your .csproj file: &lt;Project Sdk=&#34;Microsoft.NET.Sdk&#34;&gt; &lt;PropertyGroup&gt; &lt;TargetFramework&gt;net8.0&lt;/TargetFramework&gt; &lt;GeneratePackageOnBuild&gt;true&lt;/GeneratePackageOnBuild&gt; &lt;PackageId&gt;YourLibrary&lt;/PackageId&gt; &lt;Version&gt;1.0.0&lt;/Version&gt; &lt;Authors&gt;YourName&lt;/Authors&gt; &lt;PackageReadmeFile&gt;README.md&lt;/PackageReadmeFile&gt; &lt;Description&gt;Your library description&lt;/Description&gt; &lt;/PropertyGroup&gt; &lt;ItemGroup&gt; &lt;None Include=&#34;docs\README.md&#34; Pack=&#34;true&#34; PackagePath=&#34;\&#34;/&gt; &lt;/ItemGroup&gt; &lt;/Project&gt; Release with NuGet Package: dotnet pack -c Release -o obj\Release\Nuget\ Advanced(optional): [[Include XML documentation comments from your project in the NuGet package]] [[Use GitHub Actions to publish a NuGet package to GitHub Packages]] Additional ’nuget’ is not recognized To resolve the error where ’nuget’ is not recognized as a command:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-10-27 10:06:50 +0800 CST'>October 27, 2025</span>&nbsp;·&nbsp;<span>Maru Lin</span></footer>
-  <a class="entry-link" aria-label="post link to Git Branching Ex-Deep Dive into Rebase" href="http://localhost:1313/posts/git-branching/git-branching-ex-deep-dive-into-rebase/"></a>
+  <footer class="entry-footer"><span title='2025-10-28 10:06:51 +0800 CST'>October 28, 2025</span>&nbsp;·&nbsp;<span>Maru Lin</span></footer>
+  <a class="entry-link" aria-label="post link to Create a NuGet Package Guide" href="http://localhost:1313/posts/nuget-package/step-by-step-guide-to-create-a-nuget-package/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">1111My First Post1
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Introduction 111This is bold text, and this is emphasized text.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-10-27 09:06:50 +0800 CST'>October 27, 2025</span>&nbsp;·&nbsp;<span>Maru Lin</span></footer>
-  <a class="entry-link" aria-label="post link to 1111My First Post1" href="http://localhost:1313/posts/1my-first-post---%E8%A4%87%E8%A3%BD/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">C# Yield
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>🧩 Intent The yield keyword simplifies the creation of iterators by allowing a method to produce a sequence of values lazily, one at a time, without building a collection in memory.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-10-27 09:06:50 +0800 CST'>October 27, 2025</span>&nbsp;·&nbsp;<span>Maru Lin</span></footer>
-  <a class="entry-link" aria-label="post link to C# Yield" href="http://localhost:1313/posts/csharp-keyword-yield/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Japanese APP MVP
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 新增字彙
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-10-27 09:06:50 +0800 CST'>October 27, 2025</span>&nbsp;·&nbsp;<span>Maru Lin</span></footer>
-  <a class="entry-link" aria-label="post link to Japanese APP MVP" href="http://localhost:1313/posts/japanese-app-mvp/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">My First Post1
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Introduction This is bold text, and this is emphasized text.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-10-27 09:06:50 +0800 CST'>October 27, 2025</span>&nbsp;·&nbsp;<span>Maru Lin</span></footer>
-  <a class="entry-link" aria-label="post link to My First Post1" href="http://localhost:1313/posts/my-first-post---%E8%A4%87%E8%A3%BD---%E8%A4%87%E8%A3%BD/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">My First Post1
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Introduction This is bold text, and this is emphasized text.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-10-27 09:06:50 +0800 CST'>October 27, 2025</span>&nbsp;·&nbsp;<span>Maru Lin</span></footer>
-  <a class="entry-link" aria-label="post link to My First Post1" href="http://localhost:1313/posts/my-first-post/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Git Branching Ex-Squash Merge vs Base Merge
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>When working with Git, merging is a crucial part of integrating changes from different branches. Two common types of merges are squash merge and base (regular) merge. Each has its own use cases and implications for your commit history.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-09-26 11:19:50 +0800 CST'>September 26, 2025</span>&nbsp;·&nbsp;<span>Maru Lin</span></footer>
-  <a class="entry-link" aria-label="post link to Git Branching Ex-Squash Merge vs Base Merge" href="http://localhost:1313/posts/git-branching/git-branching-ex-squash-merge-vs-base-merge/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Git Branching Ex-Deleting a Remote Branch
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> Objective: Learn how to delete a remote branch from your repository.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-09-26 10:06:50 +0800 CST'>September 26, 2025</span>&nbsp;·&nbsp;<span>Maru Lin</span></footer>
-  <a class="entry-link" aria-label="post link to Git Branching Ex-Deleting a Remote Branch" href="http://localhost:1313/posts/git-branching/git-branching-ex-deleting-a-remote-branch/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="prev" href="http://localhost:1313/posts/">
-      «&nbsp;Prev&nbsp;
-    </a>
-  </nav>
-</footer>
     </main>
     
 <footer class="footer">
