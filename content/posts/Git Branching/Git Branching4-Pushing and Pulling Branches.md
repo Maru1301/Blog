@@ -49,7 +49,7 @@ git pull origin <source>:<destination>
 
 ---
 ## 5. **Push Changes from One Local Branch into Another Remote Branch**   
-```
+```bash
 git push origin <source>:<destination>
 ```
 - This command pushes changes from the local `main` branch to the `feature` branch in the remote repository.   
@@ -63,4 +63,4 @@ git push origin <source>:<destination>
 ### **Problem:**
 You need to update your local `qa-test` branch with the latest changes from the remote `main` branch. After updating, you also want to push any new commits from `qa-test` back to a remote branch named `qa-test`. How do you accomplish this?   
 ## More About Push   
-[Ex. Deleting a Remote Branch](Ex.%20Deleting%20a%20Remote%20Branch.md)    
+[Ex. Deleting a Remote Branch](/posts/git-branching/git-branching-ex-deleting-a-remote-branch/)    
