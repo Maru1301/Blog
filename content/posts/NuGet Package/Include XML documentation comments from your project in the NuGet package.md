@@ -4,6 +4,8 @@ date: '2025-10-28T10:06:50+08:00'
 tags:
   - dotnet
   - nuget
+categories:
+  - nuget-package
 ---
 ## Step 1: Enable XML Documentation Generation
 

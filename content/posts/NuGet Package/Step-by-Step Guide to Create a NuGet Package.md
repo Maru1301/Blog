@@ -4,6 +4,8 @@ date: '2025-10-28T10:06:51+08:00'
 tags:
   - dotnet
   - nuget
+categories:
+  - nuget-package
 ---
 
 

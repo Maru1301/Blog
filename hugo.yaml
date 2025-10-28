@@ -16,17 +16,17 @@ menu:
       name: search
       url: /search/
       weight: 10
-    - identifier: archives
-      name: archives
-      url: /archives/
+    - identifier: categories
+      name: categories
+      url: /categories/
       weight: 20
     - identifier: tags
       name: tags
       url: /tags/
       weight: 30
-    - identifier: categories
-      name: categories
-      url: /categories/
+    - identifier: archives
+      name: archives
+      url: /archives/
       weight: 40
     - identifier: Maru1301
       name: Maru1301

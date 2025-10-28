@@ -5,6 +5,8 @@ tags:
   - dotnet
   - github
   - nuget
+categories:
+  - nuget-package
 ---
 
 ### 1. **Prepare Your Project**
