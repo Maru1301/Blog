@@ -35,9 +35,12 @@ git checkout feature-branch
 ```
    
 ---
-## **Quiz**
-### Scenario: Implementing a New Feature Based on the Latest Development Branch:
+## **Scenario**
+Implementing a New Feature Based on the Latest Development Branch
+
+### **Problem:**
 You need to implement a new feature but must ensure that it is developed based on the latest `development` branch. How do you create a new branch named `new-feature`?   
+
 ### Solution   
 
 To create a new branch named `new-feature`, first ensure you are on the latest development branch by using `git checkout main`
