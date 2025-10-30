@@ -41,7 +41,7 @@ foreach (var n in GetNumbers())
 
 **Output:**
 
-```
+```bash
 1
 2
 3
